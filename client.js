@@ -14,13 +14,18 @@ const connect = function () {
   conn.on('connect', () => {
     console.log("Successfully connected to the game server")
   });
-
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
   conn.on('connect', () => {
     conn.write('Name: DHP');
   });
+
+    //send the string move: up as data to the server via the conn object
+    //conn.on('connect', () => {
+      //conn.write('Move: up')
+    //})
+
 
   return conn;
 };

@@ -10,9 +10,17 @@ const connect = function () {
   conn.on('data', (data) => {
     console.log(data);
   });
+  // print message when connection is established
+  conn.on('connect', () => {
+    console.log("Successfully connected to the game server")
+  });
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
+
+  conn.on('connect', () => {
+    conn.write('Name: DHP');
+  });
 
   return conn;
 };
